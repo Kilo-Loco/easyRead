@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBtmConstraint: NSLayoutConstraint!
+    @IBOutlet weak var clearBtnBtmConstraint: NSLayoutConstraint!
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -25,10 +26,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
     }
     
+    func resetBtmConstraint() {
+        clearBtnBtmConstraint.constant = 8
+    }
+    
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
                 self.textViewBtmConstraint.constant = keyboardHeight
+                self.clearBtnBtmConstraint.constant = keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
@@ -38,6 +44,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(textView: UITextView) {
         self.textViewBtmConstraint.constant = 0
+    }
+    
+    @IBAction func clearBtnPressed(sender: UIButton) {
+        self.textView.text = ""
     }
     
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,12 +25,27 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="123"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-9H-OwN">
+                                <rect key="frame" x="485" y="533" width="95" height="59"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.10588235294117647" green="0.47843137254901957" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="F29-XI-MTq"/>
+                                    <constraint firstAttribute="height" constant="59" id="Pnd-eb-QZ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="31"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mat-9H-OwN" secondAttribute="bottom" constant="8" id="2Jw-yh-iiT"/>
                             <constraint firstAttribute="trailing" secondItem="pkr-es-WfU" secondAttribute="trailing" id="CoJ-MA-IWY"/>
                             <constraint firstItem="pkr-es-WfU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UI8-uP-tTr"/>
+                            <constraint firstItem="Mat-9H-OwN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="brB-gk-NPf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pkr-es-WfU" secondAttribute="bottom" id="dJn-t5-JjK"/>
                             <constraint firstItem="pkr-es-WfU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xkB-U5-xnh"/>
                         </constraints>
