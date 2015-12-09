@@ -44,6 +44,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(textView: UITextView) {
         self.textViewBtmConstraint.constant = 0
+        self.resetBtmConstraint()
     }
     
     @IBAction func clearBtnPressed(sender: UIButton) {

@@ -37,6 +37,9 @@
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y7N-qk-xk4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -51,6 +54,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clearBtnBtmConstraint" destination="2Jw-yh-iiT" id="9FS-Kt-h4S"/>
                         <outlet property="textView" destination="pkr-es-WfU" id="uIQ-US-q8k"/>
                         <outlet property="textViewBtmConstraint" destination="dJn-t5-JjK" id="WCu-JF-JK0"/>
                     </connections>
