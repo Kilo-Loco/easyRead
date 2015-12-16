@@ -13,6 +13,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBtmConstraint: NSLayoutConstraint!
     @IBOutlet weak var clearBtnBtmConstraint: NSLayoutConstraint!
+    @IBOutlet weak var doneBtnBtmConstraint: NSLayoutConstraint!
+    @IBOutlet weak var doneButton: UIButton!
+    
+    let CTA = "Type or use dictation."
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -22,12 +26,16 @@ class ViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         self.textView.delegate = self
+        self.doneButton.hidden = true
+        self.textView.text = self.CTA
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
     }
     
     func resetBtmConstraint() {
-        clearBtnBtmConstraint.constant = 8
+        self.textViewBtmConstraint.constant = 0
+        self.clearBtnBtmConstraint.constant = 8
+        self.doneBtnBtmConstraint.constant = 8
     }
     
     func keyboardWillShow(sender: NSNotification) {
@@ -35,10 +43,18 @@ class ViewController: UIViewController, UITextViewDelegate {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
                 self.textViewBtmConstraint.constant = keyboardHeight
                 self.clearBtnBtmConstraint.constant = keyboardHeight
+                self.doneButton.hidden = false
+                self.doneBtnBtmConstraint.constant = keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
             }
+        }
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if self.textView.text == CTA {
+            self.textView.text = ""
         }
     }
     
@@ -51,5 +67,9 @@ class ViewController: UIViewController, UITextViewDelegate {
         self.textView.text = ""
     }
     
+    @IBAction func doneBtnPressed(sender: UIButton) {
+        self.view.endEditing(true)
+        self.doneButton.hidden = true
+    }
 }
 

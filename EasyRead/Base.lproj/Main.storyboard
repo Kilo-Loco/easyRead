@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,14 +20,12 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pkr-es-WfU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="123"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-9H-OwN">
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-9H-OwN">
                                 <rect key="frame" x="485" y="533" width="95" height="59"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.47843137254901957" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="F29-XI-MTq"/>
@@ -41,13 +39,37 @@
                                     <action selector="clearBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y7N-qk-xk4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEt-cm-Min">
+                                <rect key="frame" x="20" y="533" width="95" height="59"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.1333333333" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="JlL-4J-eVG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="59" id="YvY-oQ-HfN"/>
+                                    <constraint firstAttribute="height" constant="59" id="jDF-d4-o9z"/>
+                                    <constraint firstAttribute="width" constant="95" id="sc3-sv-Qwv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="31"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JlL-4J-eVG"/>
+                                        <exclude reference="YvY-oQ-HfN"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="faN-0r-1xG"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mat-9H-OwN" secondAttribute="bottom" constant="8" id="2Jw-yh-iiT"/>
+                            <constraint firstItem="gEt-cm-Min" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AMz-5Y-QZu"/>
                             <constraint firstAttribute="trailing" secondItem="pkr-es-WfU" secondAttribute="trailing" id="CoJ-MA-IWY"/>
                             <constraint firstItem="pkr-es-WfU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UI8-uP-tTr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gEt-cm-Min" secondAttribute="bottom" constant="8" id="aaB-Hj-CsM"/>
                             <constraint firstItem="Mat-9H-OwN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="brB-gk-NPf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pkr-es-WfU" secondAttribute="bottom" id="dJn-t5-JjK"/>
                             <constraint firstItem="pkr-es-WfU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xkB-U5-xnh"/>
@@ -55,6 +77,8 @@
                     </view>
                     <connections>
                         <outlet property="clearBtnBtmConstraint" destination="2Jw-yh-iiT" id="9FS-Kt-h4S"/>
+                        <outlet property="doneBtnBtmConstraint" destination="aaB-Hj-CsM" id="q3k-fx-DP4"/>
+                        <outlet property="doneButton" destination="gEt-cm-Min" id="fXK-3d-zBU"/>
                         <outlet property="textView" destination="pkr-es-WfU" id="uIQ-US-q8k"/>
                         <outlet property="textViewBtmConstraint" destination="dJn-t5-JjK" id="WCu-JF-JK0"/>
                     </connections>
